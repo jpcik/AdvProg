@@ -4,6 +4,7 @@ ARG RENKU_BASE_IMAGE=renku/renkulab-py:3.9-0.13.1
 
 #FROM ${RENKU_BASE_IMAGE} as coursier_base
 
+FROM ${RENKU_BASE_IMAGE} as builder
 
 
 # Uncomment and adapt if code is to be included in the image
@@ -96,7 +97,6 @@ COPY --chown=1000:100 notebooks/ $HOME
 ########################################################
 #        Renku install section - do not edit           #
 
-FROM ${RENKU_BASE_IMAGE} as builder
 
 # RENKU_VERSION determines the version of the renku CLI
 # that will be used in this image. To find the latest version,
