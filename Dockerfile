@@ -106,8 +106,10 @@ ARG ALMOND_VERSION="0.13.1"
 # i.e SCALA_VERSIONS="2.12.8"
 ARG SCALA_VERSIONS="2.13.8 3.1.3"
 USER $NB_UID
-#COPY scripts/install-kernels.sh .
-#RUN chmod +x ./install-kernels.sh
+
+COPY scripts/install-kernels.sh .
+RUN chmod +x ./install-kernels.sh
+
 RUN ./install-kernels.sh && \
     rm install-kernels.sh && \
     rm -rf .ivy2
