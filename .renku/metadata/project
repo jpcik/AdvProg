@@ -1,0 +1,33 @@
+{
+  "@renku_data_type": "renku.domain_model.project.Project",
+  "@renku_oid": "project",
+  "agent_version": "1.11.2",
+  "annotations": [],
+  "automated_update": true,
+  "creator": {
+    "@renku_data_type": "renku.domain_model.provenance.agent.Person",
+    "@renku_data_value": {
+      "affiliation": null,
+      "alternate_name": null,
+      "email": "jean-paul.calbimonte@hevs.ch",
+      "id": "mailto:jean-paul.calbimonte@hevs.ch",
+      "name": "Jean-Paul Calbimonte Pérez"
+    }
+  },
+  "date_created": {
+    "@renku_data_type": "datetime.datetime",
+    "@renku_data_value": "2023-02-15T08:26:28+00:00"
+  },
+  "description": "Materials and exercises for the AdvProg course of the HES-SO Master MSE.",
+  "id": "/projects/jean-paul.calbimonte/hes-so-advprog",
+  "immutable_template_files": [],
+  "keywords": [],
+  "minimum_renku_version": "1.7.0",
+  "name": "HES-SO-AdvProg",
+  "template_id": "minimal",
+  "template_metadata": "{\"__template_source__\": \"https://github.com/SwissDataScienceCenter/renku-project-template\", \"__template_ref__\": \"0.4.1\", \"__template_id__\": \"minimal\", \"__namespace__\": \"jean-paul.calbimonte\", \"__repository__\": \"https://renkulab.io/gitlab\", \"__sanitized_project_name__\": \"hes-so-advprog\", \"__project_slug__\": \"jean-paul.calbimonte/hes-so-advprog\", \"__project_description__\": \"Materials and exercises for the AdvProg course of the HES-SO Master MSE.\", \"__renku_version__\": \"1.11.2\", \"name\": \"HES-SO-AdvProg\", \"__name__\": \"HES-SO-AdvProg\", \"__template_version__\": \"a3fecfa9b347613f013782075bb17734f20688bb\", \"__automated_update__\": true}",
+  "template_ref": "0.4.1",
+  "template_source": "https://github.com/SwissDataScienceCenter/renku-project-template",
+  "template_version": "a3fecfa9b347613f013782075bb17734f20688bb",
+  "version": 9
+}

@@ -1,0 +1,81 @@
+{
+  "@renku_data_type": "zc.relation.catalog.Catalog",
+  "@renku_oid": "activity-catalog",
+  "_EMPTY_name_TO_relcount_relset": {
+    "@renku_data_type": "BTrees.OOBTree.OOBTree",
+    "@renku_oid": "531ebd2cbc084d52895bbd516fce328541b53df030a441e8b72f3c7ac09b410a",
+    "@renku_reference": true
+  },
+  "_attrs": {
+    "@renku_data_type": "BTrees.OOBTree.OOBucket",
+    "@renku_oid": "bb427441d17346d09ccb07412a58c1742577a1e425f14ddb8e6b1a52737ec782",
+    "@renku_reference": true
+  },
+  "_name_TO_mapping": {
+    "@renku_data_type": "BTrees.OOBTree.OOBTree",
+    "@renku_oid": "b39c8fb959f74d2da6f4de6f477203dde50aaa433daf4702adee327d7d9af742",
+    "@renku_reference": true
+  },
+  "_queryFactories": {
+    "@renku_data_type": "builtins.tuple",
+    "@renku_data_value": [
+      {
+        "@renku_data_type": "zc.relation.queryfactory.TransposingTransitive",
+        "@renku_oid": "bcf71f60b28449dcabc47017ac48cf1ceec89795b02d4ea2bd1b136d9dd5be7a",
+        "@renku_reference": true
+      }
+    ]
+  },
+  "_relLength": {
+    "@renku_data_type": "BTrees.Length.Length",
+    "@renku_data_value": 0
+  },
+  "_relTokens": {
+    "@renku_data_type": "BTrees.OOBTree.OOTreeSet",
+    "@renku_data_value": null
+  },
+  "_relTools": {
+    "BTree": {
+      "@renku_data_type": "type",
+      "@renku_data_value": "BTrees.OOBTree.OOBTree"
+    },
+    "Bucket": {
+      "@renku_data_type": "type",
+      "@renku_data_value": "BTrees.OOBTree.OOBucket"
+    },
+    "Set": {
+      "@renku_data_type": "type",
+      "@renku_data_value": "BTrees.OOBTree.OOSet"
+    },
+    "TreeSet": {
+      "@renku_data_type": "type",
+      "@renku_data_value": "BTrees.OOBTree.OOTreeSet"
+    },
+    "difference": {
+      "@renku_data_type": "function",
+      "@renku_data_value": "BTrees._OOBTree.difference"
+    },
+    "dump": {
+      "@renku_data_type": "function",
+      "@renku_data_value": "renku.infrastructure.gateway.database_gateway.dump_downstream_relations"
+    },
+    "intersection": {
+      "@renku_data_type": "function",
+      "@renku_data_value": "BTrees._OOBTree.intersection"
+    },
+    "load": {
+      "@renku_data_type": "function",
+      "@renku_data_value": "renku.infrastructure.gateway.database_gateway.load_downstream_relations"
+    },
+    "multiunion": null,
+    "union": {
+      "@renku_data_type": "function",
+      "@renku_data_value": "BTrees._OOBTree.union"
+    }
+  },
+  "_reltoken_name_TO_objtokenset": {
+    "@renku_data_type": "BTrees.OOBTree.OOBTree",
+    "@renku_oid": "f81ceddd2cc4437cafa1b698b1481856e4908893d6ad4335a6457469d529f823",
+    "@renku_reference": true
+  }
+}
