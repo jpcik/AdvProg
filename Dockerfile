@@ -93,6 +93,9 @@ RUN chmod +x ./install-kernels.sh
 
 USER $NB_UID
 
+
+RUN ls .
+
 # ensure the JAR of the CLI is in the coursier cache, in the image
 RUN /usr/local/bin/coursier --help
 
