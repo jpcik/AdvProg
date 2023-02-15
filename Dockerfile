@@ -88,6 +88,9 @@ RUN curl -Lo /usr/local/bin/coursier https://github.com/coursier/coursier/releas
 COPY scripts/install-kernels.sh .
 RUN chmod +x ./install-kernels.sh
 
+COPY scripts/install-kernels.sh .
+RUN chmod +x ./install-kernels.sh
+
 USER $NB_UID
 
 # ensure the JAR of the CLI is in the coursier cache, in the image
@@ -107,8 +110,6 @@ ARG ALMOND_VERSION="0.13.1"
 ARG SCALA_VERSIONS="2.13.8 3.1.3"
 USER $NB_UID
 
-COPY scripts/install-kernels.sh .
-RUN chmod +x ./install-kernels.sh
 
 RUN ./install-kernels.sh && \
     rm install-kernels.sh && \
