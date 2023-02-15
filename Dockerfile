@@ -2,6 +2,9 @@
 # https://github.com/SwissDataScienceCenter/renkulab-docker
 ARG RENKU_BASE_IMAGE=renku/renkulab-py:3.9-0.13.1
 
+#FROM ${RENKU_BASE_IMAGE} as coursier_base
+
+
 ########################################################
 #        Renku install section - do not edit           #
 
@@ -56,6 +59,62 @@ FROM ${RENKU_BASE_IMAGE}
 #    /opt/conda/bin/pip install -r /tmp/requirements.txt && \
 #    conda clean -y --all && \
 #    conda env export -n "root"
+
+
+
+# Dockerfile with support for creating images with kernels for multiple Scala versions.
+# Expects ALMOND_VERSION and SCALA_VERSIONS to be set as build arg, like this:
+# docker build --build-arg ALMOND_VERSION=0.3.1 --build-arg SCALA_VERSIONS="2.12.9 2.13.0" .
+
+# Set LOCAL_IVY=yes to have the contents of ivy-local copied into the image.
+# Can be used to create an image with a locally built almond that isn't on maven central yet.
+ARG LOCAL_IVY=no
+
+#FROM jupyter/base-notebook as coursier_base
+
+USER root
+
+RUN apt-get -y update && \
+    apt-get install --no-install-recommends -y \
+      curl \
+      openjdk-8-jre-headless \
+      ca-certificates-java && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN curl -Lo /usr/local/bin/coursier https://github.com/coursier/coursier/releases/download/v2.0.0-RC3-2/coursier && \
+    chmod +x /usr/local/bin/coursier
+
+COPY scripts/install-kernels.sh .
+RUN chmod +x ./install-kernels.sh
+
+USER $NB_UID
+
+# ensure the JAR of the CLI is in the coursier cache, in the image
+RUN /usr/local/bin/coursier --help
+
+FROM builder as local_ivy_yes
+USER $NB_UID
+ONBUILD RUN mkdir -p .ivy2/local/
+ONBUILD COPY --chown=1000:100 ivy-local/ .ivy2/local/
+
+FROM builder as local_ivy_no
+
+FROM local_ivy_no
+ARG ALMOND_VERSION="0.13.1"
+# Set to a single Scala version string or list of Scala versions separated by a space.
+# i.e SCALA_VERSIONS="2.12.8"
+ARG SCALA_VERSIONS="2.13.8 3.1.3"
+USER $NB_UID
+#COPY scripts/install-kernels.sh .
+#RUN chmod +x ./install-kernels.sh
+RUN ./install-kernels.sh && \
+    rm install-kernels.sh && \
+    rm -rf .ivy2
+    
+COPY --chown=1000:100 notebooks/ $HOME
+
+
 
 RUN rm -rf ${HOME}/.renku/venv
 
