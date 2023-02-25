@@ -94,6 +94,10 @@ RUN ./install-kernels.sh && \
 COPY --chown=1000:100 notebooks/ $HOME
 
 
+RUN pip install RISE
+
+RUN pip install jupyterlab_rise
+
 ########################################################
 #        Renku install section - do not edit           #
 
