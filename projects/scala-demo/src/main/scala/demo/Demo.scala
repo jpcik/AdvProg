@@ -3,12 +3,23 @@ package demo
 @main def hello() = 
     println("Guten Morgen!")
 
+    import school.Teacher
 
+    val jen = new Teacher("Jen",34)
+
+    extension (t:Teacher)
+        def isOld=t.getAge > 20
+
+    println(jen.whoIsThis)
+
+    println(jen.isOld)
+
+    
 case class Dog(name:String):
     def bark=s"warf!"
     def sayName=s"my name is $name"
 
-
+    
 
 
 @main def moreThings()=
