@@ -15,3 +15,11 @@ class DemoTest extends AnyFlatSpec with should.Matchers :
     dog shouldBe a [Dog]
   }
 
+  "An option" should "have a unit" in {
+    val some = Some(4)
+
+    val fm = some.flatMap(x=>Some(x+1))
+
+
+  }
+

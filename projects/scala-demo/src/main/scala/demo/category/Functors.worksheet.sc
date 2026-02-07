@@ -28,13 +28,13 @@ import cats.syntax.functor._
 
 e1.map(_.toInt)
 
-
 val count_a = (word:String) => word.count(_ == 'a')
 
 val liftedCount_a = Functor[Option].lift(count_a)
 
 liftedCount_a(Some("tralalala"))
 
+liftedCount_a(Some("popopopo"))
 
 val source = List("Avatar", "the", "last","airbender")
 val product = Functor[List].fproduct(source)(count_a).toMap

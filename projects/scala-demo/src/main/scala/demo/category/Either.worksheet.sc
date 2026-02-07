@@ -33,5 +33,6 @@ positive(2)
 Either.catchOnly[NumberFormatException]("123a".toInt)
 
 //Either.catchOnly[NumberFormatException](3/0)
-dasas
 
+
+45 +3242

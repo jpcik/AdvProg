@@ -1,4 +1,7 @@
 
+val thing = new {}
+thing.toString
+
 // we import the Show trait
 import cats.Show
 
@@ -17,7 +20,7 @@ showBool.show(true)
 
 // We can import some syntax sugar ro make it easier to use
 import cats.syntax.show.toShow
-
+7.show
 4.show
 true.show
 List(4,5,6).show

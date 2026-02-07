@@ -4,6 +4,8 @@ import cats.Monad
 
 val anOpt = Monad[Option].pure(5)
 
+anOpt
+
 val otherOpt = Monad[Option].flatMap(anOpt)(e => Option(e + 2))
 
 val anotherOpt = Monad[Option].map(otherOpt)(e => 300 + e)

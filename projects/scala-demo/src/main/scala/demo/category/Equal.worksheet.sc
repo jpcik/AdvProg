@@ -54,5 +54,5 @@ Option(1) === 1.some
   given CanEqual[Doctor,Nurse] = CanEqual.derived
 
   doris == nick
-  //nick == doris
+  nick == doris
 }
