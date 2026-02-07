@@ -1,6 +1,6 @@
 # For finding latest versions of the base image see
 # https://github.com/SwissDataScienceCenter/renkulab-docker
-ARG RENKU_BASE_IMAGE=renku/renkulab-py:3.9-0.13.1
+ARG RENKU_BASE_IMAGE=renku/renkulab-py:3.11-6080194
 
 #FROM ${RENKU_BASE_IMAGE} as coursier_base
 
@@ -50,12 +50,12 @@ USER root
 RUN apt-get -y update && \
     apt-get install --no-install-recommends -y \
       curl \
-      openjdk-8-jre-headless \
+      openjdk-21-jdk \
       ca-certificates-java && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN curl -Lo /usr/local/bin/coursier https://github.com/coursier/coursier/releases/download/v2.0.0-RC3-2/coursier && \
+RUN curl -Lo /usr/local/bin/coursier https://github.com/coursier/coursier/releases/download/v2.1.25-M23/coursier && \
     chmod +x /usr/local/bin/coursier
 
 COPY scripts/install-kernels.sh .
@@ -80,10 +80,10 @@ ONBUILD COPY --chown=1000:100 ivy-local/ .ivy2/local/
 FROM builder as local_ivy_no
 
 FROM local_ivy_no
-ARG ALMOND_VERSION="0.13.1"
+ARG ALMOND_VERSION="0.14.1"
 # Set to a single Scala version string or list of Scala versions separated by a space.
 # i.e SCALA_VERSIONS="2.12.8"
-ARG SCALA_VERSIONS="2.13.8 3.1.3"
+ARG SCALA_VERSIONS="2.13.8 3.3.7"
 USER $NB_UID
 
 
@@ -105,7 +105,7 @@ RUN pip install jupyterlab_rise
 # RENKU_VERSION determines the version of the renku CLI
 # that will be used in this image. To find the latest version,
 # visit https://pypi.org/project/renku/#history.
-ARG RENKU_VERSION=1.11.2
+ARG RENKU_VERSION=2.14.0
 
 # Install renku from pypi or from github if a dev version
 RUN if [ -n "$RENKU_VERSION" ] ; then \
