@@ -80,10 +80,10 @@ ONBUILD COPY --chown=1000:100 ivy-local/ .ivy2/local/
 FROM builder as local_ivy_no
 
 FROM local_ivy_no
-ARG ALMOND_VERSION="0.14.1"
+ARG ALMOND_VERSION="0.14.2"
 # Set to a single Scala version string or list of Scala versions separated by a space.
 # i.e SCALA_VERSIONS="2.12.8"
-ARG SCALA_VERSIONS="2.13.8 3.3.7"
+ARG SCALA_VERSIONS="3.3.7"
 USER $NB_UID
 
 
@@ -105,7 +105,7 @@ RUN pip install jupyterlab_rise
 # RENKU_VERSION determines the version of the renku CLI
 # that will be used in this image. To find the latest version,
 # visit https://pypi.org/project/renku/#history.
-ARG RENKU_VERSION=2.14.0
+ARG RENKU_VERSION=2.9.4
 
 # Install renku from pypi or from github if a dev version
 RUN if [ -n "$RENKU_VERSION" ] ; then \
